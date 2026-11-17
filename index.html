@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patent Search: A Complete Guide to Finding Existing Patents</title>
+<meta name="description" content="Learn how a patent search works: types of searches, the best patent databases, a step-by-step process, common mistakes, and when to hire a professional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E2238;
+  --navy-2:#16324F;
+  --steel:#2D6A8F;
+  --brass:#C0922F;
+  --brass-dark:#8A6416;
+  --paper:#F6F8FA;
+  --white:#FFFFFF;
+  --ink:#1B2733;
+  --muted:#586675;
+  --line:#DCE3EA;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--steel)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 32px}
+
+header.site{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:3px solid var(--brass)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;flex-wrap:nowrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white);white-space:nowrap}
+.brand-mark{width:38px;height:38px;border-radius:8px;background:var(--brass);color:var(--navy);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:22px}
+.brand-name{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.2px}
+nav.main{display:flex;align-items:center;gap:26px;white-space:nowrap}
+nav.main a{color:#D5DEE8;text-decoration:none;font-size:15px;font-weight:500}
+nav.main a:hover{color:var(--white)}
+.btn{display:inline-block;background:var(--brass);color:var(--navy);font-weight:600;text-decoration:none;padding:12px 24px;border-radius:8px;transition:background .2s}
+.btn:hover{background:#D5A63F}
+.btn.ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.45)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+header.site .btn{padding:9px 20px;font-size:15px}
+
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#1E4668 100%);color:var(--white);padding:96px 0 88px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border:60px solid rgba(192,146,47,.14);border-radius:50%}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr .65fr;gap:56px;align-items:center}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,5vw,56px);line-height:1.12;margin:0 0 24px;font-weight:700;letter-spacing:-.5px}
+.hero p.lead{font-size:19px;color:#CBD7E3;max-width:62ch;margin:0 0 32px}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:28px}
+.hero-panel h2{font-family:var(--serif);font-size:20px;margin:0 0 14px;font-weight:600}
+.hero-panel ul{list-style:none;margin:0;padding:0}
+.hero-panel li{padding:11px 0 11px 30px;position:relative;color:#DCE6F0;border-top:1px solid rgba(255,255,255,.12);font-size:16px}
+.hero-panel li:first-child{border-top:0}
+.hero-panel li::before{content:"";position:absolute;left:0;top:17px;width:16px;height:9px;border-left:3px solid var(--brass);border-bottom:3px solid var(--brass);transform:rotate(-45deg)}
+
+.layout{display:grid;grid-template-columns:260px 1fr;gap:64px;padding:72px 0 40px;align-items:start}
+.toc{position:sticky;top:100px;border-left:3px solid var(--brass);padding-left:20px}
+.toc h2{font-family:var(--serif);font-size:18px;margin:0 0 12px}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:block;padding:6px 0;color:var(--muted);text-decoration:none;font-size:15px;line-height:1.4}
+.toc a:hover{color:var(--navy)}
+article{min-width:0;max-width:860px}
+article section{margin-bottom:56px}
+article h2{font-family:var(--serif);color:var(--navy);font-size:clamp(26px,3.2vw,36px);line-height:1.2;margin:0 0 20px;letter-spacing:-.3px}
+article h3{font-family:var(--serif);color:var(--navy-2);font-size:23px;line-height:1.3;margin:34px 0 10px}
+article p{margin:0 0 18px;color:#2B3846}
+article a{color:var(--steel);font-weight:600;text-decoration-thickness:2px;text-underline-offset:3px}
+article a:hover{color:var(--brass-dark)}
+.intro{font-size:19px;line-height:1.75;color:#24323F}
+.callout{background:var(--paper);border-left:4px solid var(--steel);border-radius:0 12px 12px 0;padding:20px 24px;margin:26px 0;color:#2B3846}
+.callout strong{color:var(--navy)}
+
+.services{display:grid;gap:18px;margin-top:26px}
+.service{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 28px;display:grid;grid-template-columns:52px 1fr;gap:20px}
+.service .num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--brass);font-family:var(--serif);font-weight:700;font-size:20px;display:grid;place-items:center}
+.service h3{margin:2px 0 8px}
+.service p:last-child{margin-bottom:0}
+
+.table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:560px;font-size:16px}
+th{background:var(--navy);color:var(--white);text-align:left;padding:14px 18px;font-weight:600}
+td{padding:14px 18px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:var(--paper)}
+td:first-child{font-weight:600;color:var(--navy)}
+
+.checklist{list-style:none;margin:20px 0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+.checklist li{background:var(--paper);border-radius:10px;padding:14px 18px 14px 50px;position:relative}
+.checklist li::before{content:"";position:absolute;left:20px;top:21px;width:14px;height:8px;border-left:3px solid var(--steel);border-bottom:3px solid var(--steel);transform:rotate(-45deg)}
+
+.timeline{list-style:none;margin:28px 0 0;padding:0 0 0 34px;border-left:3px solid var(--line)}
+.timeline li{position:relative;padding:0 0 28px 26px}
+.timeline li::before{content:"";position:absolute;left:-44px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--white);border:4px solid var(--brass)}
+.timeline h3{margin:0 0 6px;font-size:21px}
+.timeline p{margin:0 0 10px}
+
+.mistakes{display:grid;gap:14px;margin:22px 0}
+.mistake{border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:0 12px 12px 0;padding:18px 22px;background:var(--white)}
+.mistake p{margin:0}
+
+.conclusion{background:var(--navy);color:var(--white);border-radius:18px;padding:44px 44px 28px}
+.conclusion h2{color:var(--white)}
+.conclusion p{color:#CBD7E3}
+
+.faq-band{background:var(--paper);padding:72px 0;border-top:1px solid var(--line)}
+.faq-band h2{font-family:var(--serif);color:var(--navy);font-size:clamp(28px,3.4vw,40px);margin:0 0 28px}
+.faq-list{display:grid;gap:12px;max-width:940px}
+details{background:var(--white);border:1px solid var(--line);border-radius:12px}
+summary{cursor:pointer;list-style:none;padding:18px 56px 18px 24px;font-weight:600;color:var(--navy);position:relative;font-size:17px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:26px;color:var(--brass-dark);font-weight:500;line-height:1}
+details[open] summary::after{content:"–"}
+details[open] summary{border-bottom:1px solid var(--line)}
+details p{margin:0;padding:18px 24px 22px;color:#2B3846}
+
+.cta{background:linear-gradient(135deg,var(--navy-2),var(--steel));color:var(--white);padding:64px 0;text-align:center}
+.cta h2{font-family:var(--serif);font-size:clamp(26px,3.4vw,38px);margin:0 0 14px}
+.cta p{max-width:60ch;margin:0 auto 26px;color:#DCE8F2}
+
+footer.site{background:#091726;color:#AFBDCB;padding:56px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer.site h3{font-family:var(--serif);color:var(--white);font-size:18px;margin:0 0 14px}
+footer.site p{margin:0 0 12px;font-size:15px}
+footer.site ul{list-style:none;margin:0;padding:0}
+footer.site li{margin:0 0 9px}
+footer.site a{color:#AFBDCB;text-decoration:none;font-size:15px}
+footer.site a:hover{color:var(--brass)}
+.social{display:flex;gap:12px;margin-top:18px}
+.social a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;color:var(--white);transition:background .2s,border-color .2s}
+.social a:hover{background:var(--brass);border-color:var(--brass);color:var(--navy)}
+.social svg{width:19px;height:19px;fill:currentColor}
+.copy{padding-top:22px;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:1020px){
+  .layout{grid-template-columns:1fr;gap:28px}
+  .toc{position:static}
+  .hero .wrap{grid-template-columns:1fr}
+  nav.main{display:none}
+}
+@media (max-width:700px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .hero{padding:64px 0 56px}
+  .service{grid-template-columns:1fr}
+  .checklist{grid-template-columns:1fr}
+  .conclusion{padding:30px 22px 14px}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .brand-name{font-size:17px}
+  header.site .btn{padding:8px 14px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="https://sherinianlaw.net/" aria-label="Sherinian Law home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span class="brand-name">Sherinian Law</span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#what-is">What Is It</a>
+      <a href="#types">Search Types</a>
+      <a href="#databases">Databases</a>
+      <a href="#steps">Step by Step</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+    <a class="btn" href="#hire">When to Hire a Pro</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Patent Search: A Complete Guide to Finding Existing Patents</h1>
+        <p class="lead">Innovation begins with an idea, but turning that idea into a successful product requires more than creativity. Before investing money in development or submitting a patent application, inventors need to understand whether similar inventions already exist.</p>
+        <div class="actions">
+          <a class="btn" href="#types">Explore Search Types</a>
+          <a class="btn ghost" href="#steps">See the Process</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="In this guide">
+        <h2>What you will learn</h2>
+        <ul>
+          <li>Five types of patent searches</li>
+          <li>The best patent databases</li>
+          <li>A 7-step search method</li>
+          <li>Mistakes to avoid and when to get help</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <nav class="toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#what-is">What Is a Patent Search?</a></li>
+        <li><a href="#why">Why It Is Important</a></li>
+        <li><a href="#types">Types of Searches</a></li>
+        <li><a href="#databases">Databases and Platforms</a></li>
+        <li><a href="#steps">Step-by-Step Search</a></li>
+        <li><a href="#compare">Search Comparison</a></li>
+        <li><a href="#mistakes">Common Mistakes</a></li>
+        <li><a href="#hire">Hiring a Professional</a></li>
+        <li><a href="#business">Business Innovation</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <section id="overview">
+        <p class="intro">Innovation begins with an idea, but turning that idea into a successful product requires more than creativity. Before investing money in development or submitting a patent application, inventors need to understand whether similar inventions already exist. This is where a patent search becomes an essential part of the intellectual property process.</p>
+        <p class="intro">A <a href="https://sherinianlaw.net/patent-search/">patent search</a> involves examining existing patents, published applications, technical documents, and other publicly available information to identify inventions related to a particular idea. It helps inventors understand the existing technology landscape, discover similar developments, and make better decisions about protecting their innovations.</p>
+        <p>Whether someone is an individual inventor, startup founder, researcher, engineer, or business owner, learning how patent searches work can save time and support a more effective intellectual property strategy.</p>
+      </section>
+
+      <section id="what-is">
+        <h2>What Is a Patent Search?</h2>
+        <p>A patent search is a research process used to locate patent documents and other technical information related to a specific invention. These documents may describe products, machines, manufacturing methods, software-related technologies, chemical compositions, and technical improvements.</p>
+        <div class="callout"><strong>Main purpose:</strong> To discover whether an invention or similar technical features have already been disclosed.</div>
+        <p>Patent searches are not limited to granted patents. They may also include pending applications, published applications, expired patents, and documents that were never granted. Non-patent literature, such as research papers, technical publications, and product documentation, may also be relevant.</p>
+        <p>For example, someone developing a new type of smart home security device might search for earlier inventions involving motion sensors, automated locks, wireless communication, and camera-based monitoring systems.</p>
+        <p>The results can help the inventor understand existing solutions and identify features that may distinguish the proposed technology.</p>
+      </section>
+
+      <section id="why">
+        <h2>Why Is Patent Searching Important?</h2>
+        <p>Patent searching provides valuable information before an inventor commits to a legal filing or commercial development project. Without research, an individual may spend significant resources developing something that has already been publicly disclosed.</p>
+        <p>One major benefit is understanding novelty. In general, an invention must be new to qualify for patent protection. Earlier public disclosures may affect whether the invention satisfies this requirement.</p>
+        <p>Another benefit is improving the quality of patent applications. When inventors understand existing technology, they can explain how their inventions differ from earlier developments. This information may also help when preparing patent claims.</p>
+        <p>Patent searches can support business planning as well. Companies can examine technology trends, identify competitors' developments, and discover opportunities for research and innovation.</p>
+        <p>A search may also reveal patent documents that have expired or become publicly available, although the legal status and freedom to use any particular technology must be examined carefully.</p>
+      </section>
+
+      <section id="types">
+        <h2>Different Types of Patent Searches</h2>
+        <p>Not every patent search has the same purpose. The right search depends on what the inventor wants to learn and how the information will be used.</p>
+        <div class="services">
+          <div class="service">
+            <div class="num">1</div>
+            <div>
+              <h3>Patentability Search</h3>
+              <p>A patentability search investigates whether an invention may qualify for patent protection. It focuses on finding earlier disclosures that could affect requirements such as novelty and non-obviousness.</p>
+              <p>The search generally examines granted patents, published applications, and relevant technical literature.</p>
+              <p>For example, an inventor developing a new water filtration system may search for earlier filtration technologies, membrane structures, purification methods, and related mechanical arrangements.</p>
+              <p>A patentability search can help identify potential obstacles, but it cannot guarantee that an application will be approved.</p>
+            </div>
+          </div>
+          <div class="service">
+            <div class="num">2</div>
+            <div>
+              <h3>Prior-Art Search</h3>
+              <p>Prior art refers broadly to information that was publicly available before the relevant patent filing date or other legally applicable date.</p>
+              <p>A prior-art search examines this information to identify earlier disclosures that may be relevant to an invention.</p>
+              <p>Prior art is not limited to patent documents. Depending on the applicable law and circumstances, it may include academic papers, public presentations, product manuals, online publications, and other materials.</p>
+              <p>This type of research is particularly important when evaluating the novelty and non-obviousness of an invention.</p>
+            </div>
+          </div>
+          <div class="service">
+            <div class="num">3</div>
+            <div>
+              <h3>Freedom-to-Operate Search</h3>
+              <p>A freedom-to-operate search, also known as an FTO search, investigates whether making, using, selling, or importing a proposed product could potentially infringe enforceable patent rights in a particular country.</p>
+              <p>This search is different from a patentability search. A product may be new enough to qualify for its own patent while still using technology covered by another party's active patent claims.</p>
+              <p>FTO research generally requires detailed analysis of patent claims, legal status, geographic coverage, and relevant dates. It should be reviewed by a qualified patent professional because search results alone do not establish whether a product is legally safe to commercialize.</p>
+            </div>
+          </div>
+          <div class="service">
+            <div class="num">4</div>
+            <div>
+              <h3>Patent Landscape Search</h3>
+              <p>A patent landscape search examines a broader technology area rather than focusing on a single invention.</p>
+              <p>Businesses and research organizations may use this approach to understand innovation trends, identify major patent holders, and explore areas receiving significant research attention.</p>
+              <p>For example, a company studying electric vehicle technology might examine patent activity involving battery systems, charging infrastructure, thermal management, and energy storage.</p>
+            </div>
+          </div>
+          <div class="service">
+            <div class="num">5</div>
+            <div>
+              <h3>Competitor Patent Search</h3>
+              <p>A competitor patent search focuses on patent activity associated with particular companies, research organizations, or inventors.</p>
+              <p>Businesses may use it to monitor technological developments, understand competitors' intellectual property portfolios, and identify possible collaboration or licensing opportunities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="databases">
+        <h2>Best Patent Databases and Research Platforms</h2>
+        <p>Several online resources allow users to search patent documents and technical information. Each platform provides different research features.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Platform</th><th>Main Purpose</th><th>Useful Features</th></tr></thead>
+            <tbody>
+              <tr><td>Google Patents</td><td>General patent research</td><td>Keyword searching, patent documents, classifications</td></tr>
+              <tr><td>USPTO Patent Center</td><td>US patent application information</td><td>Application status and file history</td></tr>
+              <tr><td>USPTO Patent Public Search</td><td>US patent document research</td><td>Search tools for patents and published applications</td></tr>
+              <tr><td>WIPO PATENTSCOPE</td><td>International patent research</td><td>International applications and patent publications</td></tr>
+              <tr><td>Espacenet</td><td>Worldwide patent research</td><td>Patent documents and classification searching</td></tr>
+              <tr><td>The Lens</td><td>Patent and scholarly research</td><td>Patent records and research connections</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google Patents is a convenient starting point for many users because it offers keyword searching and access to a large collection of patent documents.</p>
+        <p>USPTO resources are especially useful when researching US patent applications and official application information.</p>
+        <p>WIPO PATENTSCOPE helps researchers explore international patent publications, while Espacenet provides access to patent documents from many jurisdictions.</p>
+        <div class="callout"><strong>Verify the status:</strong> Researchers should always confirm important legal-status information through the relevant official patent office.</div>
+      </section>
+
+      <section id="steps">
+        <h2>How to Conduct a Patent Search Step by Step</h2>
+        <p>A successful patent search requires a structured approach. Searching only one keyword is rarely enough because inventors and patent applicants may describe similar technologies using different terminology.</p>
+        <ol class="timeline">
+          <li><h3>Step 1: Describe the Invention Clearly</h3><p>Start by writing a short explanation of the invention. Identify its main function, technical components, and the problem it solves.</p><p>For example, if the invention is an automatic plant-watering device, relevant features might include soil moisture detection, water delivery, sensor control, and automated scheduling.</p><p>This description will help create a list of useful search terms.</p></li>
+          <li><h3>Step 2: Identify Main Keywords and Alternatives</h3><p>Prepare several keywords that describe the invention. Include technical terms, common names, synonyms, and alternative descriptions.</p><p>For an automatic watering device, possible terms could include:</p>
+            <ul class="checklist">
+              <li>Automated irrigation system</li>
+              <li>Smart plant watering device</li>
+              <li>Soil moisture sensor</li>
+              <li>Automatic water dispenser</li>
+              <li>Sensor-controlled irrigation</li>
+              <li>Plant hydration monitoring system</li>
+            </ul>
+            <p>Using alternative terminology increases the chance of finding relevant documents.</p></li>
+          <li><h3>Step 3: Search Patent Databases</h3><p>Begin with a broad search on a platform such as Google Patents or Espacenet. Review the results to understand how existing documents describe similar technologies.</p><p>Do not immediately reject documents because their titles look different. Important technical information may appear in the description or claims.</p></li>
+          <li><h3>Step 4: Review Patent Abstracts and Drawings</h3><p>Patent abstracts provide short summaries of inventions, while drawings can help explain their structure and operation.</p><p>Read the detailed description when a document appears relevant. Pay particular attention to its technical features and independent claims.</p></li>
+          <li><h3>Step 5: Examine Classification Codes</h3><p>Patent classification systems organize inventions according to their technical subject matter.</p><p>The International Patent Classification (IPC) and Cooperative Patent Classification (CPC) systems can help researchers discover documents that may not contain their exact search keywords.</p><p>Classification searching is particularly useful when technical terminology varies between applicants.</p></li>
+          <li><h3>Step 6: Check Publication Dates and Legal Status</h3><p>Record important dates, including filing dates, priority dates, and publication dates.</p><p>Also examine the legal status of relevant patent documents. A patent application, a granted patent, and an expired patent do not necessarily have the same legal significance.</p><p>Patent status can vary between countries, so researchers should check the relevant official records.</p></li>
+          <li><h3>Step 7: Organize and Compare Results</h3><p>Create a research record containing the patent number, title, applicant, inventor, dates, relevant technical features, and source.</p><p>Compare the identified inventions with the proposed idea. This makes it easier to recognize similarities and differences and discuss the findings with a patent attorney.</p></li>
+        </ol>
+      </section>
+
+      <section id="compare">
+        <h2>Patent Search vs. Patentability Search vs. Freedom to Operate</h2>
+        <p>These terms are related, but they answer different questions.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Research Type</th><th>Main Question</th><th>Typical Purpose</th></tr></thead>
+            <tbody>
+              <tr><td>General Patent Search</td><td>What patent documents relate to this technology?</td><td>Initial research</td></tr>
+              <tr><td>Patentability Search</td><td>Does the invention appear to meet patentability requirements?</td><td>Preparing for a patent application</td></tr>
+              <tr><td>Prior-Art Search</td><td>What earlier public information may affect the invention?</td><td>Novelty and non-obviousness research</td></tr>
+              <tr><td>Freedom-to-Operate Search</td><td>Could commercial activity conflict with enforceable patent rights?</td><td>Product launch planning</td></tr>
+              <tr><td>Patent Landscape Search</td><td>Who is developing technology in this field?</td><td>Business and research strategy</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Understanding these differences helps inventors choose the right type of research instead of assuming that one search answers every legal question.</p>
+      </section>
+
+      <section id="mistakes">
+        <h2>Common Mistakes to Avoid During Patent Research</h2>
+        <p>Patent searches can produce incomplete or misleading results when researchers use a limited approach.</p>
+        <div class="mistakes">
+          <div class="mistake"><p>One common mistake is searching only the exact name of an invention. Patent applicants often use technical language that differs from everyday product descriptions. A broader list of synonyms and related concepts is therefore important.</p></div>
+          <div class="mistake"><p>Another mistake is reading only the patent title. A document with an unrelated title may contain technical features that are highly relevant to the invention being researched.</p></div>
+          <div class="mistake"><p>Ignoring patent claims is another problem. The claims define the requested or granted scope of patent protection, making them especially important when evaluating a particular patent.</p></div>
+          <div class="mistake"><p>Researchers should also avoid assuming that an expired patent automatically makes every related product free to use. Other active patents, different jurisdictions, contractual obligations, and separate intellectual property rights may still matter.</p></div>
+          <div class="mistake"><p>Finally, a basic online search should not be treated as a legal opinion. Important patentability and freedom-to-operate decisions require careful professional analysis.</p></div>
+        </div>
+      </section>
+
+      <section id="hire">
+        <h2>When Should You Hire a Patent Search Professional?</h2>
+        <p>A basic search can help inventors understand their technology area, but more complex projects may require professional assistance.</p>
+        <p>A patent search professional or <a href="https://sherinianlaw.net/patent-attorney-chicago-il/">qualified patent attorney</a> may be useful when an invention involves several technical components, when similar patent documents are difficult to interpret, or when a business is preparing to launch a product.</p>
+        <p>Professional research can also be valuable when preparing a detailed patent application, evaluating a potential licensing opportunity, or assessing possible infringement risks.</p>
+        <div class="callout"><strong>Before you hire:</strong> Ask about the provider’s search methodology, database coverage, technical expertise, reporting format, and whether the service includes legal analysis. A search report and a legal opinion are different deliverables, so expectations should be clear.</div>
+      </section>
+
+      <section id="business">
+        <h2>How Patent Search Supports Business Innovation</h2>
+        <p>Patent research can provide more than information about whether an invention has been disclosed previously. It can help businesses understand the direction of technological development.</p>
+        <p>A company may identify technical areas where competitors are investing, discover existing solutions that could inspire further research, or recognize opportunities for product improvements.</p>
+        <p>Startups can use patent information when evaluating a proposed product and planning intellectual property investments. Established companies may use patent landscape research to monitor developments in their industries.</p>
+        <p>Patent documents also contain detailed technical descriptions that can support research and development. However, businesses should distinguish between publicly available technical information and technologies that remain subject to enforceable intellectual property rights.</p>
+      </section>
+
+      <section id="conclusion">
+        <div class="conclusion">
+          <h2>Conclusion</h2>
+          <p>A patent search is an important step in the innovation and intellectual property process. It helps inventors, entrepreneurs, researchers, and businesses discover existing inventions, understand relevant technologies, and make more informed decisions before filing patent applications or commercializing products.</p>
+          <p>Different searches serve different purposes. Patentability research focuses on whether an invention may qualify for protection, prior-art research examines earlier disclosures, and freedom-to-operate analysis investigates potential conflicts with enforceable patent rights.</p>
+          <p>By using reliable patent databases, selecting appropriate keywords, reviewing patent claims, examining classification codes, and checking legal status, researchers can build a stronger understanding of the existing technology landscape.</p>
+          <p>Although online databases make patent information easier to access, complex legal questions should be discussed with a qualified patent professional. Careful research and informed planning can help protect innovation while reducing avoidable intellectual property risks.</p>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <section class="faq-band" id="faq">
+    <div class="wrap">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <div class="faq-list">
+        <details open><summary>1. What is the main purpose of a patent search?</summary><p>The main purpose is to identify existing patent documents and technical information related to an invention. It helps inventors understand earlier developments and evaluate possible patent protection.</p></details>
+        <details><summary>2. Is a patent search necessary before filing an application?</summary><p>It is not always a formal legal requirement, but conducting a search before filing is strongly advisable. It can identify relevant prior art and help applicants make better decisions.</p></details>
+        <details><summary>3. Can I conduct a patent search for free?</summary><p>Yes. Platforms such as Google Patents, WIPO PATENTSCOPE, Espacenet, and USPTO resources provide access to patent information without requiring payment for basic searches.</p></details>
+        <details><summary>4. What is the difference between a patent search and a prior-art search?</summary><p>A patent search generally focuses on locating patent documents, while a prior-art search examines a broader range of earlier public information, including patents and non-patent publications.</p></details>
+        <details><summary>5. How long does a patent search take?</summary><p>The time depends on the complexity of the invention, the number of technical features, the databases examined, and the depth of research. A simple preliminary search may be relatively quick, while a comprehensive search can require considerably more time.</p></details>
+        <details><summary>6. Does finding a similar patent mean my invention cannot be patented?</summary><p>Not necessarily. The legal outcome depends on the technical details, relevant claims, publication history, and applicable patentability requirements. A patent professional can help evaluate the differences.</p></details>
+        <details><summary>7. What is a freedom-to-operate search?</summary><p>It is an investigation into whether a planned product or commercial activity may conflict with enforceable patent rights in a particular jurisdiction.</p></details>
+        <details><summary>8. Are expired patents still useful for research?</summary><p>Yes. Expired patent documents can provide valuable technical information and help researchers understand earlier developments. However, other active patents or legal restrictions may still apply.</p></details>
+        <details><summary>9. Which website is best for patent searching?</summary><p>Google Patents is a useful starting point for general research. USPTO resources are valuable for US patent records, while WIPO PATENTSCOPE and Espacenet are helpful for international research.</p></details>
+        <details><summary>10. Can a patent search guarantee that my invention will receive a patent?</summary><p>No. A search cannot guarantee approval. The USPTO or another relevant patent office evaluates the application according to applicable legal requirements.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Start your search with a clear plan</h2>
+      <p>Describe your invention, build a keyword list, and check legal status before you decide on your next step.</p>
+      <a class="btn" href="https://sherinianlaw.net/patent-search/">Learn About Patent Search</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Sherinian Law</h3>
+        <p>Patent guidance for inventors, startups, and established businesses.</p>
+        <div class="social" aria-label="Social links">
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3V9.75zm6.5 0h3.83v1.57h.05c.53-1 1.84-2.07 3.79-2.07 4.05 0 4.8 2.67 4.8 6.13v5.87h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75z"/></svg></a>
+          <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.86.24-1.45 1.48-1.45H16.6V4.47A21 21 0 0 0 14.3 4.35c-2.28 0-3.8 1.39-3.8 3.95v2.2H8v3h2.5V21h3z"/></svg></a>
+          <a href="https://x.com/" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3zm-1.08 16.16h1.7L7.4 4.75H5.58l11.09 14.41z"/></svg></a>
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3zm0 1.8A2.7 2.7 0 0 0 4.8 7.5v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9zM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4zm4.9-2.6a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1z"/></svg></a>
+          <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2C2 8.78 2 12 2 12s0 3.22.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77C22 15.22 22 12 22 12s0-3.22-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="#types">Types of Searches</a></li>
+          <li><a href="#databases">Patent Databases</a></li>
+          <li><a href="#steps">Step-by-Step Search</a></li>
+          <li><a href="#compare">Search Comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#mistakes">Common Mistakes</a></li>
+          <li><a href="#hire">Hiring a Professional</a></li>
+          <li><a href="#business">Business Innovation</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 Sherinian Law. All rights reserved.</span>
+      <span>This page is general information and not legal advice.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
